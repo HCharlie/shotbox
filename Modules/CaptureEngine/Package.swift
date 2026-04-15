@@ -7,11 +7,12 @@ let package = Package(
     products: [.library(name: "CaptureEngine", targets: ["CaptureEngine"])],
     dependencies: [
         .package(path: "../SharedModels"),
-        .package(url: "https://github.com/sindresorhus/Gifski.git", from: "2.2.0"),
+        // Gifski stubbed out — will be re-added in Task 11-12
+        // .package(url: "https://github.com/sindresorhus/Gifski.git", from: "2.2.0"),
     ],
     targets: [
         .target(name: "CaptureEngine",
-                dependencies: ["SharedModels", "Gifski"],
+                dependencies: ["SharedModels"],
                 path: "Sources/CaptureEngine"),
         .testTarget(name: "CaptureEngineTests",
                     dependencies: ["CaptureEngine"],
