@@ -3,11 +3,15 @@ import SwiftUI
 struct PreferencesView: View {
     var body: some View {
         TabView {
-            Text("General").tabItem { Label("General", systemImage: "gearshape") }.tag(0)
-            Text("Shortcuts").tabItem { Label("Shortcuts", systemImage: "keyboard") }.tag(1)
-            Text("Recording").tabItem { Label("Recording", systemImage: "video") }.tag(2)
-            Text("Storage").tabItem { Label("Storage", systemImage: "internaldrive") }.tag(3)
+            GeneralPrefsView()
+                .tabItem { Label("General", systemImage: "gearshape") }.tag(0)
+            ShortcutsPrefsView()
+                .tabItem { Label("Shortcuts", systemImage: "keyboard") }.tag(1)
+            RecordingPrefsView()
+                .tabItem { Label("Recording", systemImage: "video") }.tag(2)
+            StoragePrefsView()
+                .tabItem { Label("Storage", systemImage: "internaldrive") }.tag(3)
         }
-        .frame(width: 500, height: 400)
+        .frame(width: 520, height: 420)
     }
 }
