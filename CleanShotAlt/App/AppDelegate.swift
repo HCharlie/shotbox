@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var menuBarController: MenuBarController?
     private var overlayPanel: QuickOverlayPanel?
     private var historyPanelController: NSWindowController?
-    private var annotationController: AnnotationWindowController?
+    private var annotationControllers: [UUID: AnnotationWindowController] = [:]
     private var floatingPanels: [FloatingScreenshotPanel] = []
 
     // MARK: - Recording state
@@ -201,12 +201,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @available(macOS 13.0, *)
     private func startScreenRecording() {
+        isRecordingScreen = true
         Task { @MainActor in
             do {
                 let content = try await SCShareableContent.excludingDesktopWindows(
                     false, onScreenWindowsOnly: true)
                 guard let display = content.displays.first else {
                     NSLog("No display found for screen recording")
+                    isRecordingScreen = false
                     return
                 }
                 let filter = SCContentFilter(display: display, excludingWindows: [])
@@ -217,10 +219,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let recorder = ScreenRecorder(config: config)
                 screenRecorder = recorder
                 _ = try await recorder.startRecording(filter: filter)
-                isRecordingScreen = true
                 NSLog("Screen recording started")
             } catch {
                 NSLog("Failed to start screen recording: %@", error.localizedDescription)
+                isRecordingScreen = false
             }
         }
     }
@@ -260,22 +262,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @available(macOS 13.0, *)
     private func startGIFRecording() {
+        isRecordingGIF = true
         Task { @MainActor in
             do {
                 let content = try await SCShareableContent.excludingDesktopWindows(
                     false, onScreenWindowsOnly: true)
                 guard let display = content.displays.first else {
                     NSLog("No display found for GIF recording")
+                    isRecordingGIF = false
                     return
                 }
                 let filter = SCContentFilter(display: display, excludingWindows: [])
                 let recorder = GIFRecorder()
                 gifRecorder = recorder
                 try await recorder.startRecording(filter: filter)
-                isRecordingGIF = true
                 NSLog("GIF recording started")
             } catch {
                 NSLog("Failed to start GIF recording: %@", error.localizedDescription)
+                isRecordingGIF = false
             }
         }
     }
@@ -347,6 +351,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let thumbURL = HistoryStore.thumbnailsDirectory
             .appendingPathComponent(UUID().uuidString + "_thumb.jpg")
+        writeThumbnail(from: image, to: thumbURL)
         let capture = Capture(mode: mode, filePath: fileURL, thumbnailPath: thumbURL)
 
         // Ingest into history
@@ -399,6 +404,42 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return CGImageDestinationFinalize(dest)
     }
 
+    private func writeThumbnail(from image: CGImage, to url: URL) {
+        let maxDim = 240
+        let scale = min(CGFloat(maxDim) / CGFloat(image.width),
+                        CGFloat(maxDim) / CGFloat(image.height), 1.0)
+        let w = Int(CGFloat(image.width) * scale)
+        let h = Int(CGFloat(image.height) * scale)
+        guard let ctx = CGContext(data: nil, width: w, height: h,
+                                  bitsPerComponent: 8, bytesPerRow: 0,
+                                  space: CGColorSpaceCreateDeviceRGB(),
+                                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+        else { return }
+        ctx.draw(image, in: CGRect(x: 0, y: 0, width: w, height: h))
+        guard let finalThumb = ctx.makeImage() else { return }
+        guard let dest = CGImageDestinationCreateWithURL(url as CFURL, "public.jpeg" as CFString, 1, nil) else { return }
+        CGImageDestinationAddImage(dest, finalThumb, [kCGImageDestinationLossyCompressionQuality: 0.7] as CFDictionary)
+        _ = CGImageDestinationFinalize(dest)
+    }
+
+    // MARK: - Annotation editor
+
+    private func openAnnotationEditor(for capture: Capture) {
+        if let existing = annotationControllers[capture.id] {
+            existing.showWindow(nil)
+            existing.window?.makeKeyAndOrderFront(nil)
+            return
+        }
+        let controller = AnnotationWindowController(capture: capture)
+        annotationControllers[capture.id] = controller
+        NotificationCenter.default.addObserver(forName: NSWindow.willCloseNotification,
+                                               object: controller.window,
+                                               queue: .main) { [weak self] _ in
+            self?.annotationControllers.removeValue(forKey: capture.id)
+        }
+        controller.showWindow(nil)
+    }
+
     // MARK: - Overlay callbacks
 
     private func wireOverlayCallbacks() {
@@ -406,9 +447,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         panel.onAnnotate = { [weak self] capture in
             guard let self else { return }
-            let controller = AnnotationWindowController(capture: capture)
-            self.annotationController = controller
-            controller.showWindow(nil)
+            self.openAnnotationEditor(for: capture)
         }
 
         panel.onCopy = { capture in
@@ -489,9 +528,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let historyView = HistoryPanelView(
             onOpen: { [weak self] capture in
                 guard let self else { return }
-                let controller = AnnotationWindowController(capture: capture)
-                self.annotationController = controller
-                controller.showWindow(nil)
+                self.openAnnotationEditor(for: capture)
             },
             onPin: { [weak self] capture in
                 guard let self else { return }
