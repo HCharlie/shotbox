@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		308E43B8F3FF5DB34D713FDE /* OCRService in Frameworks */ = {isa = PBXBuildFile; productRef = 2FEE26744424CABF392EA146 /* OCRService */; };
+		66A98B64C1901347F31CC72F /* CaptureEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 22C612BCE20036DC65CBFB07 /* CaptureEngine */; };
+		69C8EBE8869AF7C38142709F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DD57482CEC7CD1DEE7657A /* AppDelegate.swift */; };
+		7CE2879D36E9F0E6F38D283A /* SharedModels in Frameworks */ = {isa = PBXBuildFile; productRef = ECAA8A094F93FAD3B2ED540A /* SharedModels */; };
+		84B3C8161AE73BEC3ED22DCF /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = B239EC6C3E7053C4A770109D /* KeyboardShortcuts */; };
+		95F21D8E008C16E2D4B56119 /* CleanShotAltApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5719009757FF6433DD8D484F /* CleanShotAltApp.swift */; };
+		C95C47552F99D447EABBC49F /* DesktopManager in Frameworks */ = {isa = PBXBuildFile; productRef = E9BD6827A5B97D31CDBF9274 /* DesktopManager */; };
+		CDDF0C2038F84B72B623661F /* HistoryStore in Frameworks */ = {isa = PBXBuildFile; productRef = F81BBD808038BBD455D2B0E5 /* HistoryStore */; };
+		D6CF4EED903A78470E6AC156 /* AnnotationEditor in Frameworks */ = {isa = PBXBuildFile; productRef = D78BBD56D2883635B103D998 /* AnnotationEditor */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		35091787FB7113143A103D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		54DD57482CEC7CD1DEE7657A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5719009757FF6433DD8D484F /* CleanShotAltApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanShotAltApp.swift; sourceTree = "<group>"; };
+		5AE5DC9D5A1962B03256BA25 /* AnnotationEditor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AnnotationEditor; path = Modules/AnnotationEditor; sourceTree = SOURCE_ROOT; };
+		5D9C6C0C0DE958A64AD50708 /* OCRService */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OCRService; path = Modules/OCRService; sourceTree = SOURCE_ROOT; };
+		61E2AC5C45D86CFC3EC3629D /* DesktopManager */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DesktopManager; path = Modules/DesktopManager; sourceTree = SOURCE_ROOT; };
+		79C9C3D6B75586E9009394B2 /* HistoryStore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = HistoryStore; path = Modules/HistoryStore; sourceTree = SOURCE_ROOT; };
+		9D708AFABE97D11B27C5D2CA /* SharedModels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SharedModels; path = Modules/SharedModels; sourceTree = SOURCE_ROOT; };
+		B27F490EFACED417CA1CFD7F /* CaptureEngine */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CaptureEngine; path = Modules/CaptureEngine; sourceTree = SOURCE_ROOT; };
+		D1CB0685A3B7344307FDFE46 /* CleanShotAlt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanShotAlt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D18D3DF0CF1B8A21B012A240 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CE2879D36E9F0E6F38D283A /* SharedModels in Frameworks */,
+				CDDF0C2038F84B72B623661F /* HistoryStore in Frameworks */,
+				C95C47552F99D447EABBC49F /* DesktopManager in Frameworks */,
+				308E43B8F3FF5DB34D713FDE /* OCRService in Frameworks */,
+				66A98B64C1901347F31CC72F /* CaptureEngine in Frameworks */,
+				D6CF4EED903A78470E6AC156 /* AnnotationEditor in Frameworks */,
+				84B3C8161AE73BEC3ED22DCF /* KeyboardShortcuts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D297A1A29F19CBCF66EBD70 /* PreferencesWindow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PreferencesWindow;
+			sourceTree = "<group>";
+		};
+		46B50FEE35C92EBAFFC1B2B7 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8B6EF3E7DE8BDBD3324DD7A9 /* AnnotationWindow */,
+				E40861137C488DBC56B5824B /* FloatingScreenshot */,
+				564A8CCBF6E7D45F95E041ED /* HistoryPanel */,
+				0D297A1A29F19CBCF66EBD70 /* PreferencesWindow */,
+				95E99AF147981A4822593F9A /* QuickOverlay */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		564A8CCBF6E7D45F95E041ED /* HistoryPanel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HistoryPanel;
+			sourceTree = "<group>";
+		};
+		7ECE30CD6D1A05BF4ECC51BD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				54DD57482CEC7CD1DEE7657A /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8B6EF3E7DE8BDBD3324DD7A9 /* AnnotationWindow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AnnotationWindow;
+			sourceTree = "<group>";
+		};
+		95E99AF147981A4822593F9A /* QuickOverlay */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = QuickOverlay;
+			sourceTree = "<group>";
+		};
+		A0A671D097FDD897D3483D1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1CB0685A3B7344307FDFE46 /* CleanShotAlt.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1EDA0C5B4886593F30434D5 = {
+			isa = PBXGroup;
+			children = (
+				E24632806AF062CE2FF2910B /* CleanShotAlt */,
+				DD1D0B1B36B43B98A54D4AF2 /* Packages */,
+				A0A671D097FDD897D3483D1C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD1D0B1B36B43B98A54D4AF2 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				5AE5DC9D5A1962B03256BA25 /* AnnotationEditor */,
+				B27F490EFACED417CA1CFD7F /* CaptureEngine */,
+				61E2AC5C45D86CFC3EC3629D /* DesktopManager */,
+				79C9C3D6B75586E9009394B2 /* HistoryStore */,
+				5D9C6C0C0DE958A64AD50708 /* OCRService */,
+				9D708AFABE97D11B27C5D2CA /* SharedModels */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		E24632806AF062CE2FF2910B /* CleanShotAlt */ = {
+			isa = PBXGroup;
+			children = (
+				5719009757FF6433DD8D484F /* CleanShotAltApp.swift */,
+				35091787FB7113143A103D17 /* Info.plist */,
+				7ECE30CD6D1A05BF4ECC51BD /* App */,
+				46B50FEE35C92EBAFFC1B2B7 /* UI */,
+			);
+			path = CleanShotAlt;
+			sourceTree = "<group>";
+		};
+		E40861137C488DBC56B5824B /* FloatingScreenshot */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FloatingScreenshot;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CDD5DCB21EA5BE672F2D420E /* CleanShotAlt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BABCBD5F2599E3B43BC1C3B /* Build configuration list for PBXNativeTarget "CleanShotAlt" */;
+			buildPhases = (
+				19F3976862C963A4B48D31F5 /* Sources */,
+				D18D3DF0CF1B8A21B012A240 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CleanShotAlt;
+			packageProductDependencies = (
+				ECAA8A094F93FAD3B2ED540A /* SharedModels */,
+				F81BBD808038BBD455D2B0E5 /* HistoryStore */,
+				E9BD6827A5B97D31CDBF9274 /* DesktopManager */,
+				2FEE26744424CABF392EA146 /* OCRService */,
+				22C612BCE20036DC65CBFB07 /* CaptureEngine */,
+				D78BBD56D2883635B103D998 /* AnnotationEditor */,
+				B239EC6C3E7053C4A770109D /* KeyboardShortcuts */,
+			);
+			productName = CleanShotAlt;
+			productReference = D1CB0685A3B7344307FDFE46 /* CleanShotAlt.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		012446B987924535C867B8EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					CDD5DCB21EA5BE672F2D420E = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3D03AAF6230711C357ED891D /* Build configuration list for PBXProject "CleanShotAlt" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A1EDA0C5B4886593F30434D5;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A6396DDAF02130DC12EB48F6 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+				CCB80AAF65348C895AE91B73 /* XCLocalSwiftPackageReference "Modules/AnnotationEditor" */,
+				01DCB6D25FCB7FF8CDD85197 /* XCLocalSwiftPackageReference "Modules/CaptureEngine" */,
+				FCC44959AC9647FF321E3D27 /* XCLocalSwiftPackageReference "Modules/DesktopManager" */,
+				D0A140A4527CC736DB0E14FB /* XCLocalSwiftPackageReference "Modules/HistoryStore" */,
+				F8AC21A5643E42EFA3CC33AD /* XCLocalSwiftPackageReference "Modules/OCRService" */,
+				53EF8F713027824131F1AF66 /* XCLocalSwiftPackageReference "Modules/SharedModels" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A0A671D097FDD897D3483D1C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CDD5DCB21EA5BE672F2D420E /* CleanShotAlt */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		19F3976862C963A4B48D31F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C8EBE8869AF7C38142709F /* AppDelegate.swift in Sources */,
+				95F21D8E008C16E2D4B56119 /* CleanShotAltApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0BE450F59BA5A6138996D010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		2BE871B8CC47CEF6A77D7B63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CleanShotAlt.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = CleanShotAlt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cleanshot-alt.CleanShotAlt";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		D46D7E60D6B74F23AE42844D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CleanShotAlt.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = CleanShotAlt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cleanshot-alt.CleanShotAlt";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		DA53ABDEFF36AF3B9DC73032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D03AAF6230711C357ED891D /* Build configuration list for PBXProject "CleanShotAlt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BE450F59BA5A6138996D010 /* Debug */,
+				DA53ABDEFF36AF3B9DC73032 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9BABCBD5F2599E3B43BC1C3B /* Build configuration list for PBXNativeTarget "CleanShotAlt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D46D7E60D6B74F23AE42844D /* Debug */,
+				2BE871B8CC47CEF6A77D7B63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		01DCB6D25FCB7FF8CDD85197 /* XCLocalSwiftPackageReference "Modules/CaptureEngine" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/CaptureEngine;
+		};
+		53EF8F713027824131F1AF66 /* XCLocalSwiftPackageReference "Modules/SharedModels" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/SharedModels;
+		};
+		CCB80AAF65348C895AE91B73 /* XCLocalSwiftPackageReference "Modules/AnnotationEditor" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/AnnotationEditor;
+		};
+		D0A140A4527CC736DB0E14FB /* XCLocalSwiftPackageReference "Modules/HistoryStore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/HistoryStore;
+		};
+		F8AC21A5643E42EFA3CC33AD /* XCLocalSwiftPackageReference "Modules/OCRService" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/OCRService;
+		};
+		FCC44959AC9647FF321E3D27 /* XCLocalSwiftPackageReference "Modules/DesktopManager" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/DesktopManager;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A6396DDAF02130DC12EB48F6 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22C612BCE20036DC65CBFB07 /* CaptureEngine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CaptureEngine;
+		};
+		2FEE26744424CABF392EA146 /* OCRService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OCRService;
+		};
+		B239EC6C3E7053C4A770109D /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A6396DDAF02130DC12EB48F6 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+		D78BBD56D2883635B103D998 /* AnnotationEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AnnotationEditor;
+		};
+		E9BD6827A5B97D31CDBF9274 /* DesktopManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesktopManager;
+		};
+		ECAA8A094F93FAD3B2ED540A /* SharedModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedModels;
+		};
+		F81BBD808038BBD455D2B0E5 /* HistoryStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HistoryStore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 012446B987924535C867B8EA /* Project object */;
+}

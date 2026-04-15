@@ -1,0 +1,63 @@
+name: CleanShotAlt
+options:
+  bundleIdPrefix: com.cleanshot-alt
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+  defaultConfig: Debug
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "13.0"
+
+packages:
+  SharedModels:
+    path: Modules/SharedModels
+  HistoryStore:
+    path: Modules/HistoryStore
+  DesktopManager:
+    path: Modules/DesktopManager
+  OCRService:
+    path: Modules/OCRService
+  CaptureEngine:
+    path: Modules/CaptureEngine
+  AnnotationEditor:
+    path: Modules/AnnotationEditor
+  KeyboardShortcuts:
+    url: https://github.com/sindresorhus/KeyboardShortcuts
+    from: "2.0.0"
+
+targets:
+  CleanShotAlt:
+    type: application
+    platform: macOS
+    sources:
+      - path: CleanShotAlt
+    info:
+      path: CleanShotAlt/Info.plist
+      properties:
+        LSUIElement: true
+        NSScreenCaptureUsageDescription: "CleanShotAlt needs screen capture access to take screenshots and recordings."
+        NSMicrophoneUsageDescription: "CleanShotAlt needs microphone access to record audio with screen recordings."
+        NSCameraUsageDescription: "CleanShotAlt needs camera access for the webcam overlay during recordings."
+        NSAppleEventsUsageDescription: "CleanShotAlt needs to send events to Finder to hide desktop icons."
+    entitlements:
+      path: CleanShotAlt.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cleanshot-alt.CleanShotAlt
+        INFOPLIST_FILE: CleanShotAlt/Info.plist
+        CODE_SIGN_ENTITLEMENTS: CleanShotAlt.entitlements
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_STYLE: Automatic
+        SWIFT_VERSION: "5.9"
+    dependencies:
+      - package: SharedModels
+      - package: HistoryStore
+      - package: DesktopManager
+      - package: OCRService
+      - package: CaptureEngine
+      - package: AnnotationEditor
+      - package: KeyboardShortcuts
