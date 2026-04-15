@@ -6,7 +6,7 @@ struct CleanShotAltApp: App {
 
     var body: some Scene {
         Settings {
-            Text("Preferences").frame(width: 500, height: 400)
+            PreferencesView()
         }
     }
 }

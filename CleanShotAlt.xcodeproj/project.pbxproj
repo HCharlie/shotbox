@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		308E43B8F3FF5DB34D713FDE /* OCRService in Frameworks */ = {isa = PBXBuildFile; productRef = 2FEE26744424CABF392EA146 /* OCRService */; };
+		62B1A763B8CA449C8BCF09BF /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB609E67F36BDF5D558562 /* AppSettings.swift */; };
 		66A98B64C1901347F31CC72F /* CaptureEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 22C612BCE20036DC65CBFB07 /* CaptureEngine */; };
 		69C8EBE8869AF7C38142709F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DD57482CEC7CD1DEE7657A /* AppDelegate.swift */; };
+		7A5F42CB993187242DEBD339 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F3F2B3458D9F4FD1D93481 /* MenuBarController.swift */; };
 		7CE2879D36E9F0E6F38D283A /* SharedModels in Frameworks */ = {isa = PBXBuildFile; productRef = ECAA8A094F93FAD3B2ED540A /* SharedModels */; };
 		84B3C8161AE73BEC3ED22DCF /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = B239EC6C3E7053C4A770109D /* KeyboardShortcuts */; };
+		8C3A31AB1A1D6BEEA401DC7E /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838328A5838AE857B0AB5C2 /* PreferencesView.swift */; };
 		95F21D8E008C16E2D4B56119 /* CleanShotAltApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5719009757FF6433DD8D484F /* CleanShotAltApp.swift */; };
 		C95C47552F99D447EABBC49F /* DesktopManager in Frameworks */ = {isa = PBXBuildFile; productRef = E9BD6827A5B97D31CDBF9274 /* DesktopManager */; };
 		CDDF0C2038F84B72B623661F /* HistoryStore in Frameworks */ = {isa = PBXBuildFile; productRef = F81BBD808038BBD455D2B0E5 /* HistoryStore */; };
@@ -25,8 +28,11 @@
 		5AE5DC9D5A1962B03256BA25 /* AnnotationEditor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AnnotationEditor; path = Modules/AnnotationEditor; sourceTree = SOURCE_ROOT; };
 		5D9C6C0C0DE958A64AD50708 /* OCRService */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OCRService; path = Modules/OCRService; sourceTree = SOURCE_ROOT; };
 		61E2AC5C45D86CFC3EC3629D /* DesktopManager */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DesktopManager; path = Modules/DesktopManager; sourceTree = SOURCE_ROOT; };
+		66EB609E67F36BDF5D558562 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		79C9C3D6B75586E9009394B2 /* HistoryStore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = HistoryStore; path = Modules/HistoryStore; sourceTree = SOURCE_ROOT; };
+		79F3F2B3458D9F4FD1D93481 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		9D708AFABE97D11B27C5D2CA /* SharedModels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SharedModels; path = Modules/SharedModels; sourceTree = SOURCE_ROOT; };
+		A838328A5838AE857B0AB5C2 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		B27F490EFACED417CA1CFD7F /* CaptureEngine */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CaptureEngine; path = Modules/CaptureEngine; sourceTree = SOURCE_ROOT; };
 		D1CB0685A3B7344307FDFE46 /* CleanShotAlt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanShotAlt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -52,6 +58,7 @@
 		0D297A1A29F19CBCF66EBD70 /* PreferencesWindow */ = {
 			isa = PBXGroup;
 			children = (
+				A838328A5838AE857B0AB5C2 /* PreferencesView.swift */,
 			);
 			path = PreferencesWindow;
 			sourceTree = "<group>";
@@ -79,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				54DD57482CEC7CD1DEE7657A /* AppDelegate.swift */,
+				66EB609E67F36BDF5D558562 /* AppSettings.swift */,
+				79F3F2B3458D9F4FD1D93481 /* MenuBarController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -221,7 +230,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				69C8EBE8869AF7C38142709F /* AppDelegate.swift in Sources */,
+				62B1A763B8CA449C8BCF09BF /* AppSettings.swift in Sources */,
 				95F21D8E008C16E2D4B56119 /* CleanShotAltApp.swift in Sources */,
+				7A5F42CB993187242DEBD339 /* MenuBarController.swift in Sources */,
+				8C3A31AB1A1D6BEEA401DC7E /* PreferencesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
