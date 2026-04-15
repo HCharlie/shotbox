@@ -7,8 +7,8 @@ let package = Package(
     products: [.library(name: "CaptureEngine", targets: ["CaptureEngine"])],
     dependencies: [
         .package(path: "../SharedModels"),
-        // Gifski stubbed out — will be re-added in Task 11-12
-        // .package(url: "https://github.com/sindresorhus/Gifski.git", from: "2.2.0"),
+        // Gifski (sindresorhus/Gifski) is an Xcode app project, not an SPM package.
+        // GIF encoding is handled via ImageIO instead.
     ],
     targets: [
         .target(name: "CaptureEngine",
